@@ -15,7 +15,7 @@ const NewUser = () => {
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    setUserForm({ ...userForm, [name]: value });
+    setUserForm({ ...userForm, [name]: value.charAt(0).toUpperCase()+ value.slice(1).toLowerCase() });
   };
 
   const handleSubmit = (e) => {
@@ -35,17 +35,24 @@ const NewUser = () => {
       setError("Ese DNI ya esta registrado");
       return;
     }
-    setUsers([...users, userForm]);
+    const activeUser = {
+      ...userForm,
+      estado: true,
+      inscriptionDate: new Date().toISOString(),
+    };
+    setUsers([...users, activeUser]);
     setUserForm({
       nombre: "",
       apellido: "",
       direccion: "",
       dni: "",
       telefono: "",
+      estado: false,
     });
     setError("");
   };
 
+  console.log(users)
   return (
     <section className="container">
       <h2>Panel de Administracion</h2>

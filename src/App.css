@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.status{
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.status.active{
+    background-color: green;
+}

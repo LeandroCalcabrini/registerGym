@@ -9,7 +9,7 @@ function App() {
   const [users, setUsers] = useState([]);
   return (
     <>
-      <contextApp.Provider value={{users, setUsers}}>
+      <contextApp.Provider value={{ users, setUsers }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />

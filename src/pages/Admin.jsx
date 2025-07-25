@@ -5,6 +5,7 @@ const Admin = () => {
   return (
     <main>
       <NewUser />
+      <UsersList/>
     </main>
   );
 };
