@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { contextApp } from "../../context/context";
 
 const UsersList = () => {
-  const { users, setUsers } = useContext(contextApp);
+  const { users, setUsers,expirationDate } = useContext(contextApp);
   const [filterUser, setFilterUser] = useState([]);
 
   const handleDelete = (dni) => {
@@ -29,12 +29,6 @@ const UsersList = () => {
 
   const usersFilter = filterUser.length > 0 ? filterUser : users;
 
-  const expirationDate = (inscriptionDate) => {
-    const date = new Date(inscriptionDate);
-    date.setMonth(date.getMonth() + 1);
-
-    return date.toLocaleDateString("es-AR");
-  };
 
   const expiredSuscription = () => {
     const today = new Date();
