@@ -54,7 +54,7 @@ const UsersList = () => {
           <input
             type="search"
             onChange={handleChange}
-            placeholder="Ingrese el DNI del usuario "
+            placeholder="Ingrese el DNI "
             className="newUser-input"
           />
         </form>

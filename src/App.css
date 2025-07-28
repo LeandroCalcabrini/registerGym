@@ -7,13 +7,20 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+  background-color: #f1f1f1;
+}
+
 #root {
-  height: 100vh;
+  min-height: 100%;
 }
 
 main {
-  height: 100%;
+  min-height: calc(100vh - 60px);
   background-color: #f1f1f1;
+  padding-top: 60px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
