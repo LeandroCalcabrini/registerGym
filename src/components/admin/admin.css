@@ -11,6 +11,7 @@
   border-radius: 5px;
   padding: 0.5rem;
   border: solid 1px #ccc;
+  width: 250px;
 }
 .td-btns {
   display: flex;
@@ -79,7 +80,7 @@ th {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   table {
     font-size: 0.9rem;
   }
@@ -88,4 +89,10 @@ th {
   th {
     padding: 0.4rem;
   }
+
+  .newUser-input{
+    width: 100%;
+  }
+
+
 }
