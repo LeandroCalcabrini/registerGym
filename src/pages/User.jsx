@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { contextApp } from "../context/context";
-
+import '../pages/user.css'
 const User = () => {
   const [userDni, setUserDni] = useState("");
   const [userLogin, setUserLogin] = useState(null);
@@ -33,35 +33,43 @@ const User = () => {
   return (
     <main>
       <section className="container user">
-        <div className="user">
+        <div className="user-login">
           {!userLogin && (
             <>
-              <span>Por favor ingrese su DNI: </span>
+              <span className="login-title">Por favor ingrese su DNI: </span>
               <input
+                className="login-input"
                 type="number"
                 onChange={handleChange}
                 value={userDni}
-              />{" "}
-              <button onClick={handleClick}>Ingresar</button>
+              />
+              {loginError && <p className="text-error">{loginError}</p>}
+              <button className="login-button" onClick={handleClick}>
+                Ingresar
+              </button>
             </>
           )}
-
-          {loginError && <p>{loginError}</p>}
           {userLogin && (
-            <div className="user-info">
-              <h3>
+            <div className="login-info">
+              <h3 className="login-user">
                 ¡Hola{" "}
-                <strong>
+                <strong className="login-name">
                   {userLogin.nombre} {userLogin.apellido}
                 </strong>
                 !
               </h3>
-              <div>{userLogin.estado ? "Activo" : "Vencido"}</div>
-              <p>
-                Recorda que tu cuota vence:{" "}
+              <div
+                className={`login-estado ${userLogin.estado ? "active" : ""}`}
+              >
+                {userLogin.estado ? "Activo" : "Vencido"}
+              </div>
+              <p className="login-text">
+                Recorda que tu cuota vence:
                 {expirationDate(userLogin.inscriptionDate)}
               </p>
-              <button onClick={handleClickReset}>Volver</button>
+              <button className="login-button" onClick={handleClickReset}>
+                Volver
+              </button>
             </div>
           )}
         </div>

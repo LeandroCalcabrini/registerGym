@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import UserImg from '../img/pesas.webp'
 import AdmImg from '../img/adm.jpg'
+import '../pages/home.css'
 
 const Home = () => {
   return (

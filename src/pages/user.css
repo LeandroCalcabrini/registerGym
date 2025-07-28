@@ -1,0 +1,76 @@
+.container.user {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 2rem;
+  margin: 1rem;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+
+  background-color: white;
+  box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
+}
+
+.login-input {
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: solid 1px #ccc;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.text-error {
+  text-align: center;
+}
+
+.login-button {
+  padding: 0.45rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #8f8a8a;
+  color: #f1f1f1;
+  box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #535252;
+  box-shadow: 0 8px 20px rgb(0, 0, 0, 0.1);
+}
+
+.login-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+}
+.login-user {
+  font-size: 2.2rem;
+}
+.login-estado {
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+  background-color: red;
+}
+
+.login-estado.active {
+  background-color: green;
+  color: white;
+}
