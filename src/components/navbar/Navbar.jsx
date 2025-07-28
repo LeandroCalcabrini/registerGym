@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import "../navbar/navbar.css";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   return (
@@ -31,6 +32,7 @@ const Navbar = () => {
           Administracion
         </NavLink>
       </nav>
+      <GiHamburgerMenu size={30} className="burgerMenu"/>
     </header>
   );
 };

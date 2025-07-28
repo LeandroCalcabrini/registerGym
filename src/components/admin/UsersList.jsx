@@ -47,55 +47,59 @@ const UsersList = () => {
 
   return (
     <section className="container">
-      <div>
-        <form>
+      <div className="userList">
+        <h3>Lista de Usuarios</h3>
+        <form className="user-searchForm">
+          <label className="user-searchLabel">Buscar usuario: </label>
           <input
             type="search"
             onChange={handleChange}
             placeholder="Ingrese el DNI del usuario "
+            className="newUser-input"
           />
         </form>
-        <h3>Lista de Usuarios</h3>
         {usersFilter.length === 0 ? (
           <p>No hay usuarios registrados.</p>
         ) : (
-          <table border="1" cellPadding="10" cellSpacing="0">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Dirección</th>
-                <th>DNI</th>
-                <th>Teléfono</th>
-                <th>Vence</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {usersFilter.map((user) => (
-                <tr key={user.dni}>
-                  <td>{user.nombre}</td>
-                  <td>{user.apellido}</td>
-                  <td>{user.direccion}</td>
-                  <td>{user.dni}</td>
-                  <td>{user.telefono}</td>
-                  <td>{expirationDate(user.inscriptionDate)}</td>
-                  <td className={`status ${user.estado ? "active" : ""}`}>
-                    {user.estado ? "Activo" : "Inactivo"}
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(user.dni)}>
-                      Eliminar
-                    </button>
-                    <button onClick={() => handleActive(user.dni)}>
-                      Cuota al dia
-                    </button>
-                  </td>
+          <div className="table-container">
+            <table border="1" cellPadding="10" cellSpacing="0">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Dirección</th>
+                  <th>DNI</th>
+                  <th>Teléfono</th>
+                  <th>Vence</th>
+                  <th>Estado</th>
+                  <th>Acciones</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {usersFilter.map((user) => (
+                  <tr key={user.dni}>
+                    <td>{user.nombre}</td>
+                    <td>{user.apellido}</td>
+                    <td>{user.direccion}</td>
+                    <td>{user.dni}</td>
+                    <td>{user.telefono}</td>
+                    <td>{expirationDate(user.inscriptionDate)}</td>
+                    <td className={`status ${user.estado ? "active" : ""}`}>
+                      {user.estado ? "Activo" : "Inactivo"}
+                    </td>
+                    <td className="td-btns">
+                      <button onClick={() => handleDelete(user.dni)} className="btn-accion">
+                        Eliminar
+                      </button>
+                      <button onClick={() => handleActive(user.dni)} className="btn-accion">
+                        Cuota al dia
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </section>

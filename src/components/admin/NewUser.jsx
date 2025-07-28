@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { contextApp } from "../../context/context";
+import "../admin/admin.css";
 
 const NewUser = () => {
   const { users, setUsers } = useContext(contextApp);
@@ -55,54 +56,57 @@ const NewUser = () => {
     setError("");
   };
 
-  console.log(users);
   return (
-    <section className="container">
-      <div>
-        <h2>Panel de Administracion</h2>
-        {/* sector para cargar a los usuarios */}
-        <div>
-          <h3>Crear nuevo usuario</h3>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="">Nombre: </label>
-            <input
-              type="text"
-              name="nombre"
-              value={userForm.nombre}
-              onChange={handleChange}
-            />
-            <label htmlFor="">Apellido: </label>
-            <input
-              type="text"
-              name="apellido"
-              value={userForm.apellido}
-              onChange={handleChange}
-            />
-            <label htmlFor="">Dirección: </label>
-            <input
-              type="text"
-              name="direccion"
-              value={userForm.direccion}
-              onChange={handleChange}
-            />
-            <label htmlFor="">DNI: </label>
-            <input
-              type="number"
-              name="dni"
-              value={userForm.dni}
-              onChange={handleChange}
-            />
-            <label htmlFor="">Telefono</label>
-            <input
-              type="number"
-              name="telefono"
-              value={userForm.telefono}
-              onChange={handleChange}
-            />
-            <button type="submit">Agregar</button>
-            {error && <p>{error}</p>}
-          </form>
-        </div>
+    <section className="container adm">
+      <h2 className="title">Panel de Administracion</h2>
+      <div className="adm-newUser">
+        <h3>Crear nuevo usuario</h3>
+        <form onSubmit={handleSubmit} className="newUser-form">
+          <label className="newUser-label">Nombre: </label>
+          <input
+            type="text"
+            name="nombre"
+            value={userForm.nombre}
+            onChange={handleChange}
+            className="newUser-input"
+          />
+          <label className="newUser-label">Apellido: </label>
+          <input
+            type="text"
+            name="apellido"
+            value={userForm.apellido}
+            onChange={handleChange}
+            className="newUser-input"
+          />
+          <label className="newUser-label">Dirección: </label>
+          <input
+            type="text"
+            name="direccion"
+            value={userForm.direccion}
+            onChange={handleChange}
+            className="newUser-input"
+          />
+          <label className="newUser-label">DNI: </label>
+          <input
+            type="number"
+            name="dni"
+            value={userForm.dni}
+            onChange={handleChange}
+            className="newUser-input"
+          />
+          <label className="newUser-label">Telefono</label>
+          <input
+            type="number"
+            name="telefono"
+            value={userForm.telefono}
+            onChange={handleChange}
+            className="newUser-input"
+          />
+          {error && <p className="text-error">{error}</p>}
+          <button type="submit" className="newUser-btn">
+            Agregar
+          </button>
+        </form>
       </div>
     </section>
   );

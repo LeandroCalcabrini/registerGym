@@ -1,0 +1,93 @@
+.container.adm {
+  padding-top: 70px;
+}
+
+.newUser-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.4rem;
+  padding: 1rem 0;
+}
+.newUser-input {
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: solid 1px #ccc;
+}
+.td-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.newUser-btn,
+.btn-accion {
+  padding: 0.45rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #8f8a8a;
+  color: #f1f1f1;
+  box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newUser-btn:hover,
+.btn-accion:hover {
+  background-color: #535252;
+  box-shadow: 0 8px 20px rgb(0, 0, 0, 0.1);
+}
+
+.user-searchForm {
+  margin: 1rem 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  background-color: white;
+  border-color: #ccc;
+}
+
+thead {
+  background-color: #ccc;
+}
+
+td,
+th {
+  padding: 0.5rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+.status {
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-bottom: solid 1px #ccc;
+}
+
+.status.active {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  td,
+  th {
+    padding: 0.4rem;
+  }
+}
