@@ -15,7 +15,10 @@ const NewUser = () => {
 
   const handleChange = (e) => {
     const { value, name } = e.target;
-    setUserForm({ ...userForm, [name]: value.charAt(0).toUpperCase()+ value.slice(1).toLowerCase() });
+    setUserForm({
+      ...userForm,
+      [name]: value.charAt(0).toUpperCase() + value.slice(1).toLowerCase(),
+    });
   };
 
   const handleSubmit = (e) => {
@@ -52,52 +55,54 @@ const NewUser = () => {
     setError("");
   };
 
-  console.log(users)
+  console.log(users);
   return (
     <section className="container">
-      <h2>Panel de Administracion</h2>
-      {/* sector para cargar a los usuarios */}
       <div>
-        <h3>Crear nuevo usuario</h3>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="">Nombre: </label>
-          <input
-            type="text"
-            name="nombre"
-            value={userForm.nombre}
-            onChange={handleChange}
-          />
-          <label htmlFor="">Apellido: </label>
-          <input
-            type="text"
-            name="apellido"
-            value={userForm.apellido}
-            onChange={handleChange}
-          />
-          <label htmlFor="">Dirección: </label>
-          <input
-            type="text"
-            name="direccion"
-            value={userForm.direccion}
-            onChange={handleChange}
-          />
-          <label htmlFor="">DNI: </label>
-          <input
-            type="number"
-            name="dni"
-            value={userForm.dni}
-            onChange={handleChange}
-          />
-          <label htmlFor="">Telefono</label>
-          <input
-            type="number"
-            name="telefono"
-            value={userForm.telefono}
-            onChange={handleChange}
-          />
-          <button type="submit">Agregar</button>
-          {error && <p>{error}</p>}
-        </form>
+        <h2>Panel de Administracion</h2>
+        {/* sector para cargar a los usuarios */}
+        <div>
+          <h3>Crear nuevo usuario</h3>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="">Nombre: </label>
+            <input
+              type="text"
+              name="nombre"
+              value={userForm.nombre}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Apellido: </label>
+            <input
+              type="text"
+              name="apellido"
+              value={userForm.apellido}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Dirección: </label>
+            <input
+              type="text"
+              name="direccion"
+              value={userForm.direccion}
+              onChange={handleChange}
+            />
+            <label htmlFor="">DNI: </label>
+            <input
+              type="number"
+              name="dni"
+              value={userForm.dni}
+              onChange={handleChange}
+            />
+            <label htmlFor="">Telefono</label>
+            <input
+              type="number"
+              name="telefono"
+              value={userForm.telefono}
+              onChange={handleChange}
+            />
+            <button type="submit">Agregar</button>
+            {error && <p>{error}</p>}
+          </form>
+        </div>
       </div>
     </section>
   );

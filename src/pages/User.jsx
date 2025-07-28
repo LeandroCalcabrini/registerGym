@@ -32,32 +32,39 @@ const User = () => {
 
   return (
     <main>
-      <section>
-        {!userLogin && (
-          <span>
-            Por favor ingrese su DNI:{" "}
-            <input type="number" onChange={handleChange} value={userDni} />{" "}
-            <button onClick={handleClick}>Ingresar</button>
-          </span>
-        )}
+      <section className="container user">
+        <div className="user">
+          {!userLogin && (
+            <>
+              <span>Por favor ingrese su DNI: </span>
+              <input
+                type="number"
+                onChange={handleChange}
+                value={userDni}
+              />{" "}
+              <button onClick={handleClick}>Ingresar</button>
+            </>
+          )}
 
-        {loginError && <p>{loginError}</p>}
-        {userLogin && (
-          <div>
-            <h3>
-              ¡Hola{" "}
-              <strong>
-                {userLogin.nombre} {userLogin.apellido}
-              </strong>
-            </h3>
-            !<div>{userLogin.estado ? "Activo" : "Vencido"}</div>
-            <p>
-              Recorda que tu cuota vence:{" "}
-              {expirationDate(userLogin.inscriptionDate)}
-            </p>
-            <button onClick={handleClickReset}>Volver</button>
-          </div>
-        )}
+          {loginError && <p>{loginError}</p>}
+          {userLogin && (
+            <div className="user-info">
+              <h3>
+                ¡Hola{" "}
+                <strong>
+                  {userLogin.nombre} {userLogin.apellido}
+                </strong>
+                !
+              </h3>
+              <div>{userLogin.estado ? "Activo" : "Vencido"}</div>
+              <p>
+                Recorda que tu cuota vence:{" "}
+                {expirationDate(userLogin.inscriptionDate)}
+              </p>
+              <button onClick={handleClickReset}>Volver</button>
+            </div>
+          )}
+        </div>
       </section>
     </main>
   );

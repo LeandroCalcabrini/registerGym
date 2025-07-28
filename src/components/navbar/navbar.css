@@ -1,0 +1,37 @@
+.header {
+  background: linear-gradient(90deg, rgb(0, 0, 0), rgb(90, 89, 89));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #f1f1f1;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  transition: font-weight 0.3s ease, color 0.3s ease;
+}
+.nav-link:hover {
+  font-weight: bold;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  color: white;
+}

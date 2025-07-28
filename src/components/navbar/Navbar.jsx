@@ -1,13 +1,36 @@
-import { NavLink,} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../navbar/navbar.css";
 
 const Navbar = () => {
   return (
-    <header>
-      <img src="#" alt="logo" />
-      <NavLink to={"/"}>Inicio</NavLink>
-       <NavLink to={"/user"}>Usuario</NavLink>
-        <NavLink to={"/admin"}>Administracion</NavLink>
-
+    <header className="header">
+      <strong className="logo">Star Gym</strong>
+      <nav className="navbar">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+          to={"/"}
+        >
+          Inicio
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+          to={"/user"}
+        >
+          Usuario
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "nav-link active" : "nav-link"
+          }
+          to={"/admin"}
+        >
+          Administracion
+        </NavLink>
+      </nav>
     </header>
   );
 };
