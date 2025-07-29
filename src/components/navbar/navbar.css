@@ -38,7 +38,43 @@
   color: white;
 }
 
-.burgerMenu{
+.burgerMenu {
+  display: none;
+  color: white;
+  cursor: pointer;
+}
+
+.closeIcon {
+  color: white;
   display: none;
 }
 
+@media (max-width: 480px) {
+  .burgerMenu {
+    display: block;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 0.7;
+    width: 100%;
+    padding-bottom: 1rem;
+    background: linear-gradient(90deg, rgb(0, 0, 0), rgb(90, 89, 89));
+    position: absolute;
+    top: 60px;
+    right: 0;
+    transform: translateY(-150%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar.active {
+    display: flex;
+    transform: translateY(0%);
+  }
+
+  .closeIcon {
+    align-self: flex-end;
+    display: block;
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+}
