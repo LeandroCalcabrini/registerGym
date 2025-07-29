@@ -38,6 +38,9 @@
 
 .user-searchForm {
   margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .table-container {
@@ -79,6 +82,10 @@ th {
 }
 
 @media (max-width: 480px) {
+  .user-searchForm{
+    flex-direction: column;
+    align-items: start;
+  }
   table {
     font-size: 0.9rem;
   }
