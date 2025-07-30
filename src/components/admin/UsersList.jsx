@@ -25,8 +25,8 @@ const UsersList = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     const searchUser = users.filter((user) => user.dni === value);
-    console.log(searchUser);
-    if (searchUser.length === 0) {
+
+    if (searchUser.length === 0 && value.trim()) {
       return setErrorSearch(`No se encontraron resultados para "${value}"`);
     }
     setFilterUser(searchUser);
@@ -51,7 +51,7 @@ const UsersList = () => {
     expiredSuscription();
   }, []);
 
-  console.log(errorSearch);
+
   return (
     <section className="container">
       <div className="userList">
