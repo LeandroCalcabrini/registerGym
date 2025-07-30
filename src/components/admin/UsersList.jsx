@@ -4,6 +4,7 @@ import { contextApp } from "../../context/context";
 const UsersList = () => {
   const { users, setUsers, expirationDate } = useContext(contextApp);
   const [filterUser, setFilterUser] = useState([]);
+  const [errorSearch, setErrorSearch] = useState(null);
 
   const handleDelete = (dni) => {
     // funcion para eliminar usuario
@@ -24,7 +25,12 @@ const UsersList = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     const searchUser = users.filter((user) => user.dni === value);
+    console.log(searchUser);
+    if (searchUser.length === 0) {
+      return setErrorSearch(`No se encontraron resultados para "${value}"`);
+    }
     setFilterUser(searchUser);
+    setErrorSearch(null);
   };
 
   const usersFilter = filterUser.length > 0 ? filterUser : users;
@@ -45,6 +51,7 @@ const UsersList = () => {
     expiredSuscription();
   }, []);
 
+  console.log(errorSearch);
   return (
     <section className="container">
       <div className="userList">
@@ -58,8 +65,9 @@ const UsersList = () => {
             className="newUser-input"
           />
         </form>
-        {usersFilter.length === 0 ? (
-          <p>No hay usuarios registrados.</p>
+        {usersFilter.length === 0 && <p>No hay usuarios registrados.</p>}
+        {errorSearch ? (
+          <p>{errorSearch}</p>
         ) : (
           <div className="table-container">
             <table border="1" cellPadding="10" cellSpacing="0">
@@ -88,10 +96,16 @@ const UsersList = () => {
                       {user.estado ? "Activo" : "Inactivo"}
                     </td>
                     <td className="td-btns">
-                      <button onClick={() => handleDelete(user.dni)} className="btn-accion">
+                      <button
+                        onClick={() => handleDelete(user.dni)}
+                        className="btn-accion"
+                      >
                         Eliminar
                       </button>
-                      <button onClick={() => handleActive(user.dni)} className="btn-accion">
+                      <button
+                        onClick={() => handleActive(user.dni)}
+                        className="btn-accion"
+                      >
                         Cuota al dia
                       </button>
                     </td>
